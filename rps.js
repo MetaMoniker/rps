@@ -11,10 +11,10 @@ const win = 'You win!';
 const lose = 'You lose!';
 
 const computerSelection = computerPlay();
-const playerSelection =  'Rock';
+const playerSelection = 'Rock';
 
-console.log('You: '+playerSelection);
-console.log('Computer: '+computerSelection);
+console.log('You: ' + playerSelection);
+console.log('Computer: ' + computerSelection);
 
 
 
@@ -22,9 +22,9 @@ function computerPlay() {
 
     let computerResult = '';
     //random number used to decide choice
-    let rangeOptions = Math.round(Math.random()*100);
+    let rangeOptions = Math.round(Math.random() * 100);
     // console.log(rangeOptions); //test
-    
+
     // rock paper scissors into thirds of 0 - 99
     if (rangeOptions >= 0 && rangeOptions <= 33) {
         computerResult = 'Rock';
@@ -47,14 +47,14 @@ function playRound(computerSelection, playerSelection) {
             return lose;
         } else if (computerSelection == 'Scissors') {
             return win;
-        }    
+        }
     } else if (playerSelection == 'Paper') {
         if (computerSelection == 'Rock') {
             return win;
         } else if (computerSelection == 'Scissors') {
             return lose;
-        }   
-    } else if (playerSelection == 'Scissors'){
+        }
+    } else if (playerSelection == 'Scissors') {
         if (computerSelection == 'Paper') {
             return win;
         } else if (computerSelection == 'Rock') {
@@ -67,16 +67,39 @@ function playRound(computerSelection, playerSelection) {
 
 
 function game() {
-   
+
     for (i = 1; i <= 5; i++) {
 
         console.log(`${i} :  ${computerSelection} ` + playRound(computerPlay(), playerSelection));
-        
-        
-        
+
+
+
     }
 
 
 }
 
 game();
+
+
+
+// alternate 
+// function beat(comp, play) {
+//     if (play === "Rock" && comp === "Paper") return true;
+//     if (play === "Scissors" && comp === "Rock") return true;
+//     if (play === "Paper" && comp === "Scissors") return true;
+// }
+
+// const beats = {
+//     Rock: "Paper",
+//     Paper: "Scissors",
+//     Scissors: "Rock"
+// }
+
+// function round(c, p) {
+//     console.log(`you ${p}`);
+//     console.log(`computer ${c}`);
+//     if (c === p) return tie;
+//     if (beats[p] === c) return lose;
+//     return win;
+// }
